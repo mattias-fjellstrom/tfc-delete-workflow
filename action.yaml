@@ -1,0 +1,22 @@
+name: Delete a Terraform Cloud workspace
+author: Mattias Fjellström (mattias.fjellstrom [at] gmail.com)
+description: Delete an existing workspace from Terraform Cloud
+
+inputs:
+  organization:
+    description: Terraform cloud organization name
+  workspace:
+    description: Name of Terraform cloud workspace to delete
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - -organization
+    - ${{ inputs.organization }}
+    - -workspace
+    - ${{ inputs.workspace }}
+
+branding:
+  icon: star
+  color: blue
